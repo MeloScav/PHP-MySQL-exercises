@@ -19,7 +19,7 @@
             <input type="password" name="password" id="password">
             <?php 
                 if(!empty($_POST['password']) AND $_POST['password'] != 'kangourou'){
-                    echo '<p style="color:red">Erreur dans le mot de passe</p>';
+                    echo '<p style="color:red"><strong>Erreur dans le mot de passe</strong></p>';
                 } 
             ?>
         </div>
