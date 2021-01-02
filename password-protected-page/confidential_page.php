@@ -16,7 +16,14 @@
     <p><strong>H5TM-TW35-Y5E6-W58P-53FG-I8O5</strong></p>
 
     <?php
-     } 
+     } elseif (empty($_POST['password'])) {
+        //  If no password
+      echo '<p>Entrez un mot de passe !</p>';
+        
+    } else{
+      //  If false : display an error message
+      echo '<p>Mot de passe incorrect</p>';
+    }
     ?>
 </body>
 </html>
