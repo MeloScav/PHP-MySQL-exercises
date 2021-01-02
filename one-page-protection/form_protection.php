@@ -22,6 +22,13 @@
     </form>
 
    <?php
+        } else {
+    ?>
+
+    <h1>Voici les codes secret</h1>
+    <p><strong>H5TM-TW35-Y5E6-W58P-53FG-I8O5</strong></p>
+
+    <?php
         }
    ?>
 </body>
