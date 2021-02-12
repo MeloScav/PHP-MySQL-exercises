@@ -2,17 +2,8 @@
     // A cookie to remember the nickname
     setcookie('nickname', $_POST['nickname'], time() + 365*24*3600, null, null, false, true); 
 
-    require('./../config.php');
-
-    // BDD connection
-    try {
-        $bdd = new PDO($DB_CONNECTION,  $DB_USERNAME, $DB_PASSWORD,
-                        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
-    catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
-
+    // Database connection
+    require("./database.php");
     // If all is right, we continue
 
     // SQL request

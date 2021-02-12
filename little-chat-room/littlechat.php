@@ -28,18 +28,9 @@
 
     <!-- MESSAGES -->
     <?php
-         require('./../config.php');
-
-         // BDD connection
-         try {
-             $bdd = new PDO($DB_CONNECTION,  $DB_USERNAME, $DB_PASSWORD,
-                             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-         }
-         catch (Exception $e) {
-             die('Erreur : ' . $e->getMessage());
-         }
-
-         // If all is right, we continue
+        // Database connection
+        require("./database.php");
+        // If all is right, we continue
 
         // SQL request and retrieving the last 10 messages
         $response= $bdd->query('SELECT * FROM minichat ORDER BY ID DESC LIMIT 0,10');
