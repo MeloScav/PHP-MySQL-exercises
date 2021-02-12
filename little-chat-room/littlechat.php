@@ -14,7 +14,8 @@
     <form action="littlechat_post.php" method="post">
         <div>
             <label for="nickname">Entrez votre pseudo : </label>
-            <input type="text" name="nickname" id="nickname">
+            <input type="text" name="nickname" id="nickname" 
+                   value="<?php if(isset($_COOKIE['nickname'])) echo htmlspecialchars($_COOKIE['nickname']); ?>">
         </div>
         <div>
             <label for="message">Entrez votre message : </label>
