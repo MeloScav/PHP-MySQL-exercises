@@ -51,7 +51,8 @@
         }
 
         $response->closeCursor();
-
+        // Closure of the database
+        $bdd = null;
     ?>
     
 </body>

@@ -19,6 +19,8 @@
         ':message' => $_POST['message']
     ));
 
+    // Closure of the database
+    $bdd = null;
     // Redirection to littlechat.php
     header('Location: littlechat.php');
 
