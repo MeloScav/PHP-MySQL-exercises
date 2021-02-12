@@ -48,8 +48,17 @@
         }
 
         $response->closeCursor();
+ 
+
+        // Count the number of message
+        $number_of_message = $bdd->query('SELECT COUNT(*) AS nb_messages FROM minichat');
+        $total_messages = $number_of_message->fetch();
+        $total_number = $total_messages['nb_messages'];
+
+
         // Closure of the database
         $bdd = null;
+    
     ?>
     <script src="./script.js"></script>
 </body>
