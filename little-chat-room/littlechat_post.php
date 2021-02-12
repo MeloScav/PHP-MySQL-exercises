@@ -1,4 +1,6 @@
 <?php
+    // A cookie to remember the nickname
+    setcookie('nickname', $_POST['nickname'], time() + 365*24*3600, null, null, false, true); 
 
     require('./../config.php');
 
@@ -25,5 +27,4 @@
     $bdd = null;
     // Redirection to littlechat.php
     header('Location: littlechat.php');
-
 ?>
