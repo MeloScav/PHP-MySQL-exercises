@@ -24,6 +24,8 @@
         <input type="submit" value="Envoyer">
     </form>
 
+    <button type="button" class="reload-button">Actualiser</button>
+
     <!-- MESSAGES -->
     <?php
          require('./../config.php');
@@ -58,6 +60,6 @@
         // Closure of the database
         $bdd = null;
     ?>
-    
+    <script src="./script.js"></script>
 </body>
 </html>
