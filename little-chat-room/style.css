@@ -1,0 +1,110 @@
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORM */
+.form {
+    margin-bottom: 1rem;
+}
+.form div {
+    flex-wrap: wrap;
+    padding : 0.5rem;
+}
+.form-input {
+    display: flex;
+    align-items: center;
+}
+.form-input label {
+    padding: 0px 10px 4px 0px;
+}
+.form-input input, textarea {
+    border: 2px solid rgb(118, 118, 118);
+    border-radius: 5px;
+}
+textarea {
+    max-width: 80vw;
+    max-height: 150px;
+}
+.form-input input {
+    padding: 4px 6px;
+}
+.form-input input:focus {
+    border-color: rgb(173, 16, 147);
+    outline: none;
+}
+.form-input textarea:focus {
+    border-color: rgb(173, 16, 147);
+    outline: none;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.buttons .btn {
+    border: 2px solid rgb(246, 91, 138);
+    border-radius: 5px;
+    background-color: rgba(246, 91, 138, 0.3);
+}
+.buttons .btn:hover {
+    border: 2px solid rgb(250, 40, 103);
+    background-color: rgba(250, 40, 103, 0.3);
+    cursor: pointer;
+}
+.buttons input {
+    margin-right: 10px;
+}
+
+
+/* MESSAGES */
+.messages-container {
+    min-width: 50%;
+}
+
+.messages-content {
+    display: block;
+    border: 2px solid rgb(173, 16, 147);
+    background-color: rgba(173, 16, 147, 0.1);
+    margin: 0px 0px 10px 0px;
+}
+.messages-content p {
+    padding-left: 15px;
+}
+.pseudo {
+    font-size: 18px;
+    font-weight: bold;
+}
+.message {
+    font-style: italic;
+}
+
+/* PAGING */
+.paging {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.page-item{
+    padding: 0.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.disabled a {
+    cursor: not-allowed;
+    color: rgba(0,0,0, 0.5);
+}
+
+.active a {
+    color :rgb(173, 16, 147);
+}
