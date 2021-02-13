@@ -53,34 +53,28 @@
         // Calculation of the first message of the page
         $first_message = ($current_page * $per_page) - $per_page;
 
-        // $request= $bdd->query('SELECT * FROM minichat ORDER BY ID DESC LIMIT 0,10');
         // SQL request and displays 10 messages per page
         $request= $bdd->prepare('SELECT * FROM minichat ORDER BY ID DESC LIMIT :first,:perpage');
-        // $request->execute(array(
-        //     'first' => $first_message,
-        //     'perpage' => $per_page
-        // ));
 
         $request->bindValue(':first', $first_message, PDO::PARAM_INT);
         $request->bindValue(':perpage', $per_page, PDO::PARAM_INT);
 
-        $data = $request->fetchAll(PDO::FETCH_ASSOC);
+        $request->execute();
 
          // DISPLAY and data protection
-        //  while ($data = $request->fetch()){
-         while ($data){
+         while ($data = $request->fetch()){
      ?>
-         <div>
-             <p> <?php echo htmlspecialchars($data['pseudo']); ?> </p>
-             <p> <?php echo htmlspecialchars($data['message']); ?> </p>
-         </div>
+            <div>
+                <p> <?php echo htmlspecialchars($data['pseudo']); ?> </p>
+                <p> <?php echo htmlspecialchars($data['message']); ?> </p>
+            </div>
      <?php
          }
     
     ?>
 
        <!-- Paging -->
-       <nav>
+    <nav>
         <ul class="pagging">
             <!-- Deactivate the previous page if you are on the 1st page -->
             <li class="page-item <?php echo ($current_page == 1) ? "disabled" : ""; ?>">
@@ -103,7 +97,6 @@
                 </a>
             </li>
         </ul>
-    
     </nav>
  
     <?php         
