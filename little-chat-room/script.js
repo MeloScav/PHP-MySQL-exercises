@@ -1,5 +1,7 @@
-// Reload button
-let reloadButton = document.querySelector(".reload-button");
-reloadButton.addEventListener("click", ()=>{
-    document.location.reload();
-})
+(() => {
+   // Reload button
+    let reloadButton = document.querySelector(".reload-button");
+    reloadButton.addEventListener("click", ()=>{
+        location.reload();
+    })
+})();
