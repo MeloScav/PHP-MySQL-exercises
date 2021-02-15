@@ -16,16 +16,16 @@
         <form action="littlechat_post.php" method="post" class="form">
             <div class="form-input">
                 <label for="nickname">Entrez votre pseudo : </label>
-                <input type="text" name="nickname" id="nickname" 
-                    value="<?php if(isset($_COOKIE['nickname'])) echo htmlspecialchars($_COOKIE['nickname']); ?>">
+                <input class="validation-field" type="text" name="nickname" id="nickname" 
+                    value="<?php if(isset($_COOKIE['nickname'])) echo htmlspecialchars($_COOKIE['nickname']); ?>" required>
             </div>
             <div class="form-input">
                 <label for="message">Entrez votre message : </label>
-                <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                <textarea class="validation-field" name="message" id="message" cols="30" rows="5" required></textarea>
             </div>
             <div class="buttons">
                 <input class="btn" type="submit" value="Envoyer">
-                <button class="btn" type="button" class="reload-button">Actualiser</button>
+                <button class="btn reload-button" type="button">Actualiser</button>
             </div>
         </form>
 
