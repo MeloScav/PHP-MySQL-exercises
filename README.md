@@ -1,4 +1,4 @@
-# PHP - exercices
+# PHP - MySQL - exercises
 
 Here are different exercises done in PHP.
 
@@ -17,3 +17,8 @@ In exercise 2, we do exercise 1 but on a single php page.
 In exercise 3, we are going to create a small chat room with, on the same page, two small text areas, one for writing the nickname and one for writing the message.  
 A "send" button will send and save information on a MySQL table.  
 The last 10 messages, from the most recent to the most oldest, shoul be displayed below.
+
+## Blog
+
+In exercise 4, we are going to make a small blog with a systeme of news and comments.  
+A news page and a comments page associated with news.
