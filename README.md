@@ -1,6 +1,6 @@
 # PHP - MySQL - exercises
 
-Here are different exercises done in PHP.
+Here are different exercises done in PHP and MySQL.
 
 ## Password Protected Page
 
