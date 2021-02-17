@@ -10,6 +10,33 @@
 
     <h1>Bienvenue sur mon blog !</h1>
     <h2>Voici les derniers nouvelles du blog :</h2>
+
+    <?php
+    
+    // Connection to the database
+    require("./database.php");
+
+    $response = $db->query('SELECT title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news');
+
+    while ($data = $response->fetch()) {
+    ?>
+
+        <div class="container">
+            <div class="header-news">
+                <h3><?php echo $data['title'] ?></h3>
+                <p><?php echo $data['date_news'] ?></p>
+            </div>
+            <div class="content-news">
+                <p><?php echo $data['content'] ?></p>
+            </div>
+            <a href="?news=1">Commentaires</a>
+        </div>
+
+    <?php
+    }
+
+    $db = null;
+    ?>
     
 </body>
 </html>
