@@ -57,7 +57,7 @@
             $first_message = ($current_page * $per_page) - $per_page;
 
             // SQL request and displays 10 messages per page
-            $request= $bdd->prepare('SELECT * FROM minichat ORDER BY ID DESC LIMIT :first,:perpage');
+            $request= $bdd->prepare('SELECT pseudo, message, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS message_date FROM minichat ORDER BY ID DESC LIMIT :first,:perpage');
 
             $request->bindValue(':first', $first_message, PDO::PARAM_INT);
             $request->bindValue(':perpage', $per_page, PDO::PARAM_INT);
@@ -72,7 +72,10 @@
             while ($data = $request->fetch()){
         ?>
                 <div class="messages-content">
-                    <p class="pseudo"> <?php echo htmlspecialchars($data['pseudo']); ?> </p>
+                   <div class="header-msg">
+                        <p class="pseudo"> <?php echo htmlspecialchars($data['pseudo']); ?> </p>
+                        <p class="date"> <?php echo $data['message_date']; ?> </p>
+                   </div>
                     <p class="message"> <?php echo nl2br(htmlspecialchars($data['message'])); ?> </p>
                 </div>
         <?php

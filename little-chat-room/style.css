@@ -69,16 +69,19 @@ textarea {
 .messages-container {
   min-width: 50%;
 }
-
+.header-msg {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .messages-content {
   display: block;
   border: 2px solid rgb(173, 16, 147);
   background-color: rgba(173, 16, 147, 0.1);
   margin: 0px 0px 10px 0px;
+  padding: 0 15px 0 15px;
 }
-.messages-content p {
-  padding-left: 15px;
-}
+
 .pseudo {
   font-size: 18px;
   font-weight: bold;

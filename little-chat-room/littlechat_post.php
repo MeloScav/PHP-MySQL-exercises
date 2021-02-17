@@ -7,8 +7,8 @@
     // If all is right, we continue
 
     // SQL request
-    $request = $bdd->prepare('INSERT INTO minichat(pseudo, message) 
-                              VALUES (:pseudo, :message) ');
+    $request = $bdd->prepare('INSERT INTO minichat(pseudo, message, creation_date) 
+                              VALUES (:pseudo, :message, NOW()) ');
     $request->execute(array(
         ':pseudo' => $_POST['nickname'],
         ':message' => $_POST['message']
