@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Commentaires</h1>
-    <a>Retour</a>
+    <a href="index.php">Retour</a>
 
     <?php
         // Connection to the database
