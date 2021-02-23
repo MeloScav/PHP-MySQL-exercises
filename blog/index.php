@@ -16,7 +16,7 @@
     // Connection to the database
     require("./database.php");
 
-    $response = $db->query('SELECT title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news');
+    $response = $db->query('SELECT ID, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news');
 
     while ($data = $response->fetch()) {
     ?>
@@ -29,12 +29,14 @@
             <div class="content-news">
                 <p><?php echo $data['content'] ?></p>
             </div>
-            <a href="?news=1">Commentaires</a>
+            <a href="comments.php?news=<?php echo $data['ID']?>">
+                Commentaires
+            </a>
         </div>
 
     <?php
     }
-
+    $response->closeCursor();
     $db = null;
     ?>
     
