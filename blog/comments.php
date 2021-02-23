@@ -15,12 +15,28 @@
         require("./database.php");
 
         $id_news= $_GET['news'];
+
+        $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news WHERE ID = :id_url');
+        $request_news->execute(array(':id_url' => $id_news));
+
+        while($data_news = $request_news->fetch()) {
+    ?>
+        <div class="container">
+            <div class="header-news">
+                <h3><?php echo $data_news['title'] ?></h3>
+                <p><?php echo $data_news['date_news'] ?></p>
+            </div>
+            <div class="content-news">
+                <p><?php echo $data_news['content'] ?></p>
+            </div>
+        </div>
+    <?php
+        }
     
-        $request = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments GROUP BY new_id HAVING new_id = :url_id');
+        $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments GROUP BY new_id HAVING new_id = :url_id');
+        $request_comments->execute(array(':url_id' => $id_news));
 
-        $request->execute(array(':url_id' => $id_news));
-
-        while($data = $request->fetch()) {
+        while($data = $request_comments->fetch()) {
     ?>
         <div class="container">
             <div class="header-comments">
@@ -33,8 +49,8 @@
         </div>
     <?php
         }
-
-        $request->closeCursor();
+        $request_news->closeCursor();
+        $request_comments->closeCursor();
         $db = null;
     ?>
 </body>
