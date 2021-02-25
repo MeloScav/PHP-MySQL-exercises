@@ -26,11 +26,11 @@
         ?>
             <div class="container-news">
                 <div class="header-news">
-                    <h3><?php echo $data_news['title'] ?></h3>
-                    <p><?php echo $data_news['date_news'] ?></p>
+                    <h3><?php echo htmlspecialchars($data_news['title']); ?></h3>
+                    <p><?php echo htmlspecialchars($data_news['date_news']); ?></p>
                 </div>
                 <div class="content-news">
-                    <p><?php echo $data_news['content'] ?></p>
+                    <p><?php echo htmlspecialchars($data_news['content']); ?></p>
                 </div>
             </div>
         <?php
@@ -43,18 +43,18 @@
         
             $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments GROUP BY new_id HAVING new_id = :url_id');
             $request_comments->execute(array(':url_id' => $id_news));
-
-            while($data = $request_comments->fetch()) {
+     
+                while($data = $request_comments->fetch()) {
         ?>
-            <div class="container-comments">
-                <div class="header-comments">
-                    <h3><?php echo $data['author'] ?></h3>
-                    <p><?php echo $data['comment_date_new'] ?></p>
+                <div class="container-comments">
+                    <div class="header-comments">
+                        <h3><?php echo htmlspecialchars($data['author']); ?></h3>
+                        <p><?php echo htmlspecialchars($data['comment_date_new']); ?></p>
+                    </div>
+                    <div class="content-comment">
+                        <p><?php echo htmlspecialchars($data['comment']); ?></p>
+                    </div>
                 </div>
-                <div class="content-comment">
-                    <p><?php echo $data['comment'] ?></p>
-                </div>
-            </div>
         <?php
             }
             $request_news->closeCursor();

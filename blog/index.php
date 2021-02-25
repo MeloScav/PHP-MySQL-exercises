@@ -51,13 +51,13 @@
 
             <div class="container-news">
                 <div class="header-news">
-                    <h3><?php echo $data['title'] ?></h3>
-                    <p><?php echo $data['date_news'] ?></p>
+                    <h3><?php echo htmlspecialchars($data['title']); ?></h3>
+                    <p><?php echo htmlspecialchars($data['date_news']); ?></p>
                 </div>
                 <div class="content-news">
-                    <p><?php echo $data['content'] ?></p>
+                    <p><?php echo htmlspecialchars($data['content']); ?></p>
                 </div>
-                <a class="btn" href="comments.php?news=<?php echo $data['ID']?>">
+                <a class="btn" href="comments.php?news=<?php echo $data['ID'];?>">
                     Commentaires
                 </a>
             </div>
