@@ -31,7 +31,7 @@
                 <div class="content-news">
                     <p><?php echo $data['content'] ?></p>
                 </div>
-                <a href="comments.php?news=<?php echo $data['ID']?>">
+                <a class="btn" href="comments.php?news=<?php echo $data['ID']?>">
                     Commentaires
                 </a>
             </div>

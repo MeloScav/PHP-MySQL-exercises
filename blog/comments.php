@@ -8,7 +8,8 @@
     <title>Commentaires</title>
 </head>
 <body>
-    <h1>Commentaires</h1>
+    
+    <h1>Bienvenue sur mon blog !</h1>
     <a class="btn" href="index.php">Retour</a>
 
     <div class="container">
@@ -34,6 +35,11 @@
             </div>
         <?php
             }
+        ?>
+
+        <h2>Commentaires</h2>
+        
+        <?php
         
             $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments GROUP BY new_id HAVING new_id = :url_id');
             $request_comments->execute(array(':url_id' => $id_news));
