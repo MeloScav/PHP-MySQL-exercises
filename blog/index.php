@@ -18,7 +18,7 @@
         // Connection to the database
         require("./database.php");
 
-        $response = $db->query('SELECT ID, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news');
+        $response = $db->query('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news');
 
         while ($data = $response->fetch()) {
         ?>

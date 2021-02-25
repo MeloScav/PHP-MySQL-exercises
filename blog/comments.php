@@ -18,7 +18,7 @@
 
             $id_news= $_GET['news'];
 
-            $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y %H:%i") AS date_news FROM news WHERE ID = :id_url');
+            $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news WHERE ID = :id_url');
             $request_news->execute(array(':id_url' => $id_news));
 
             while($data_news = $request_news->fetch()) {
