@@ -67,3 +67,30 @@ h2 {
   color: #f8f8f8;
   background-color: rgba(250, 40, 103, 0.726);
 }
+
+/* PAGING */
+.paging {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.page-item {
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.link-paging {
+  text-decoration: none;
+  color: black;
+}
+
+.disabled .link-paging {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.active .link-paging {
+  color: rgb(250, 40, 103);
+}
