@@ -22,7 +22,7 @@
             $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news WHERE ID = :id_url');
             $request_news->execute(array(':id_url' => $id_news));
 
-            while($data_news = $request_news->fetch()) {
+            $data_news = $request_news->fetch();
         ?>
             <div class="container-news">
                 <div class="header-news">
@@ -34,14 +34,14 @@
                 </div>
             </div>
         <?php
-            }
+            $request_news->closeCursor();
         ?>
 
         <h2>Commentaires</h2>
         
         <?php
         
-            $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments GROUP BY new_id HAVING new_id = :url_id');
+            $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments WHERE new_id = :url_id ORDER BY comment_date');
             $request_comments->execute(array(':url_id' => $id_news));
      
                 while($data = $request_comments->fetch()) {
@@ -57,7 +57,6 @@
                 </div>
         <?php
             }
-            $request_news->closeCursor();
             $request_comments->closeCursor();
             $db = null;
         ?>
