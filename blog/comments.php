@@ -64,7 +64,7 @@
 
     <!-- FORM -->
     <h2>Écrire un commentaire :</h2>
-    <form action="comments_post.php" method="post">
+    <form action="comments_post.php?news=<?php echo $id_news ?>" method="post">
         <div>
             <label for="name">Nom :</label>
             <input type="text" name="name" id="name">
