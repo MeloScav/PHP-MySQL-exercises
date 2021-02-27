@@ -14,6 +14,7 @@
         ':message' => $_POST['message']
     ));
 
+    $request->closeCursor();
     // Closure of the database
     $bdd = null;
     // Redirection to littlechat.php
