@@ -61,5 +61,18 @@
             $db = null;
         ?>
     </div>
+
+    <!-- FORM -->
+    <h2>Écrire un commentaire :</h2>
+    <form action="comments_post.php" method="post">
+        <div>
+            <label for="name">Nom :</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="message">Message :</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </div>
+    </form>
 </body>
 </html>
