@@ -30,7 +30,7 @@
                     <p><?php echo htmlspecialchars($data_news['date_news']); ?></p>
                 </div>
                 <div class="content-news">
-                    <p><?php echo htmlspecialchars($data_news['content']); ?></p>
+                    <p><?php echo nl2br(htmlspecialchars($data_news['content'])); ?></p>
                 </div>
             </div>
         <?php
@@ -52,7 +52,7 @@
                         <p><?php echo htmlspecialchars($data['comment_date_new']); ?></p>
                     </div>
                     <div class="content-comment">
-                        <p><?php echo htmlspecialchars($data['comment']); ?></p>
+                        <p><?php echo nl2br(htmlspecialchars($data['comment'])); ?></p>
                     </div>
                 </div>
         <?php

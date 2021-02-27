@@ -55,7 +55,7 @@
                     <p><?php echo htmlspecialchars($data['date_news']); ?></p>
                 </div>
                 <div class="content-news">
-                    <p><?php echo htmlspecialchars($data['content']); ?></p>
+                    <p><?php echo nl2br(htmlspecialchars($data['content'])); ?></p>
                 </div>
                 <a class="btn" href="comments.php?news=<?php echo $data['ID'];?>">
                     Commentaires
