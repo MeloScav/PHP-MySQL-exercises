@@ -71,7 +71,11 @@
         </div>
         <div>
             <label for="message">Message :</label>
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea name="message" id="message" cols="30" rows="15"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Envoyer">
+            <button type="button">Actualiser</button>
         </div>
     </form>
 </body>
