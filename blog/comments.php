@@ -60,23 +60,24 @@
             $request_comments->closeCursor();
             $db = null;
         ?>
+
+         <!-- FORM -->
+        <h2>Écrire un commentaire :</h2>
+        <form id="formulaire" class="comment-form" action="comments_post.php?news=<?php echo $id_news ?>" method="post">
+            <div class="form-input">
+                <label for="name">Nom :</label>
+                <label for="message">Message :</label>
+            </div>
+            <div class="form-input">
+                <input type="text" name="name" id="name" required>
+                <textarea name="message" id="message" cols="30" rows="5" required></textarea>
+            </div>
+        </form>
+            <div>
+                <input type="submit" form="formulaire" value="Envoyer">
+                <button type="button">Actualiser</button>
+            </div>
     </div>
 
-    <!-- FORM -->
-    <h2>Écrire un commentaire :</h2>
-    <form action="comments_post.php?news=<?php echo $id_news ?>" method="post">
-        <div>
-            <label for="name">Nom :</label>
-            <input type="text" name="name" id="name">
-        </div>
-        <div>
-            <label for="message">Message :</label>
-            <textarea name="message" id="message" cols="30" rows="15"></textarea>
-        </div>
-        <div>
-            <input type="submit" value="Envoyer">
-            <button type="button">Actualiser</button>
-        </div>
-    </form>
 </body>
 </html>
