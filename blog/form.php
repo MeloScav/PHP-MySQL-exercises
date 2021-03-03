@@ -14,7 +14,7 @@
         </form>
         <div class="buttons">
             <input class="btn-form" type="submit" form="formulaire" value="Envoyer">
-            <button class="btn-form" type="button">Actualiser</button>
+            <button class="btn-form reload-button" type="button">Actualiser</button>
         </div>
     </div>
 </div>

@@ -77,6 +77,6 @@
             echo '<p class="error">Cet article n\'existe pas.</p>';
         }
     ?>
-
+    <script src="./script.js"></script>
 </body>
 </html>
