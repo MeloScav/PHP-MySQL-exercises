@@ -46,8 +46,10 @@
         
         $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments WHERE new_id = :url_id ORDER BY comment_date');
         $request_comments->execute(array(':url_id' => $id_news));
-     
-        while($data = $request_comments->fetch()) {
+        $data = $request_comments->fetch();
+
+        if(!empty($data)) {
+            while($data = $request_comments->fetch()) {
     ?>
                 <div class="container-comments">
                     <div class="header-comments">
@@ -59,6 +61,9 @@
                     </div>
                 </div>
     <?php
+            }
+        }else {
+            echo '<p class="no-messages">Il n\'y a pas encore de message pour cet article.</p>';
         }
         $request_comments->closeCursor();
         $db = null;
@@ -69,7 +74,7 @@
     <?php include('./form.php'); ?>
     <?php
         } else {
-            echo '<p class="error">Cette article n\'existe pas</p>';
+            echo '<p class="error">Cet article n\'existe pas.</p>';
         }
     ?>
 
