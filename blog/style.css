@@ -155,6 +155,9 @@ textarea {
 }
 
 /* ERROR */
+.no-messages {
+  color: grey;
+}
 .error {
   text-align: center;
   font-size: large;
