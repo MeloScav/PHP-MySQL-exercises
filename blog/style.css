@@ -16,16 +16,16 @@ h2 {
 }
 @media screen and (min-width: 425px) {
   .container {
-    margin: 2rem auto;
+    margin: 2rem auto 0 auto;
     max-width: 85%;
   }
 }
 
 /* NEWS - COMMENTS */
-.container-news {
-  margin-bottom: 30px;
+.container-news,
+.container-comments {
+  margin-bottom: 25px;
 }
-
 .header-news,
 .header-comments {
   padding: 0 20px 0 20px;
@@ -46,7 +46,8 @@ h2 {
 .content-comment p {
   padding: 0 20px 0 20px;
 }
-.container-news p {
+.container-news p,
+.container-comments p {
   padding-bottom: 1rem;
 }
 
@@ -93,4 +94,57 @@ h2 {
 
 .active .link-paging {
   color: rgb(250, 40, 103);
+}
+
+/* FORM */
+.container-form-background {
+  padding-top: 10px;
+  background-color: rgba(121, 49, 255, 0.3);
+}
+.comment-form {
+  padding-top: 18px;
+  display: flex;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+.form-input label {
+  margin-right: 20px;
+  margin-bottom: 26px;
+}
+.form-input input,
+textarea {
+  margin-bottom: 20px;
+}
+.form-input input[type="text"] {
+  padding: 6px;
+}
+.form-input textarea {
+  max-width: 80vw;
+  max-height: 150px;
+}
+
+/* BUTTONS */
+.buttons {
+  padding: 5px 0 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn-form {
+  font-weight: bold;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  text-decoration: none;
+  color: rgba(121, 49, 255, 0.8);
+  background-color: #f8f8f8;
+  border: 2px solid rgba(121, 49, 255, 0.8);
+  border-radius: 5px;
+  transition: all 0.35s ease-out;
+}
+
+.btn-form:hover {
+  color: #f8f8f8;
+  background-color: rgba(121, 49, 255, 0.8);
 }
