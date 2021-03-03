@@ -21,4 +21,5 @@ The last 10 messages, from the most recent to the most oldest, shoul be displaye
 ## Blog
 
 In exercise 4, we are going to make a small blog with a systeme of news and comments.  
-A news page and a comments page associated with news.
+A news page and a comments page associated with ID news.  
+There will be a form for adding new comments on the comments page as well as the management of errors for a display of a new which doesn't exist or of an absence of comments on the page.
