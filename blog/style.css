@@ -153,3 +153,11 @@ textarea {
   color: #f8f8f8;
   background-color: rgba(121, 49, 255, 0.8);
 }
+
+/* ERROR */
+.error {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  color: red;
+}

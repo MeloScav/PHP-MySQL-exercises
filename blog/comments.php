@@ -12,18 +12,20 @@
     <h1>Bienvenue sur mon blog !</h1>
     <a class="btn" href="index.php">Retour</a>
 
-    <div class="container">
-        <?php
-            // Connection to the database
-            require("./database.php");
+    <?php
+        // Connection to the database
+        require("./database.php");
 
-            $id_news= $_GET['news'];
+        $id_news= $_GET['news'];
 
-            $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news WHERE ID = :id_url');
-            $request_news->execute(array(':id_url' => $id_news));
+        $request_news = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news WHERE ID = :id_url');
+        $request_news->execute(array(':id_url' => $id_news));
 
-            $data_news = $request_news->fetch();
-        ?>
+        $data_news = $request_news->fetch();
+
+        if(!empty($data_news)) {
+    ?>
+        <div class="container">
             <div class="container-news">
                 <div class="header-news">
                     <h3><?php echo htmlspecialchars($data_news['title']); ?></h3>
@@ -33,20 +35,20 @@
                     <p><?php echo nl2br(htmlspecialchars($data_news['content'])); ?></p>
                 </div>
             </div>
-        <?php
-            $request_news->closeCursor();
-        ?>
+    <?php
+        $request_news->closeCursor();
+    ?>
 
-        <div class="container-comments">
-            <h2>Commentaires</h2>
+            <div class="container-comments">
+                <h2>Commentaires</h2>
         
-        <?php
+    <?php
         
-            $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments WHERE new_id = :url_id ORDER BY comment_date');
-            $request_comments->execute(array(':url_id' => $id_news));
+        $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments WHERE new_id = :url_id ORDER BY comment_date');
+        $request_comments->execute(array(':url_id' => $id_news));
      
-                while($data = $request_comments->fetch()) {
-        ?>
+        while($data = $request_comments->fetch()) {
+    ?>
                 <div class="container-comments">
                     <div class="header-comments">
                         <h3><?php echo htmlspecialchars($data['author']); ?></h3>
@@ -56,15 +58,20 @@
                         <p><?php echo nl2br(htmlspecialchars($data['comment'])); ?></p>
                     </div>
                 </div>
-        <?php
-            }
-            $request_comments->closeCursor();
-            $db = null;
-        ?>
-        </div>
+    <?php
+        }
+        $request_comments->closeCursor();
+        $db = null;
+    ?>
+            </div>
     </div>
    
     <?php include('./form.php'); ?>
+    <?php
+        } else {
+            echo '<p class="error">Cette article n\'existe pas</p>';
+        }
+    ?>
 
 </body>
 </html>
