@@ -15,11 +15,11 @@
             return $request_comments;
         }
     
-        public function postMessage($id, $name, $message) {
+        public function postMessage($id_news, $name, $message) {
             $db = $this->dbConnect();
             $comment = $db->prepare('INSERT INTO comments(new_id, author, comment, comment_date) VALUES(:new_id, :name_author, :comment, NOW())');
             $affectedLines = $comment->execute(array(
-                                                ':new_id' => $id,
+                                                ':new_id' => $id_news,
                                                 ':name_author' => $name,
                                                 ':comment' => $message
                                             ));
