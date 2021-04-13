@@ -2,7 +2,7 @@
 <div class="container-form-background">
     <div class="container">
         <h2>Écrire un commentaire :</h2>
-        <form id="formulaire" class="comment-form" action="comments_post.php?news=<?php echo $id_news ?>" method="post">
+        <form id="formulaire" class="comment-form" action="index.php?action=addMessage&amp;id-news=<?php echo $_GET['id-news'] ?>" method="post">
             <div class="form-input">
                 <label for="name">Nom :</label>
                 <label for="message">Message :</label>
