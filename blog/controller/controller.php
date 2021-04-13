@@ -1,5 +1,8 @@
 <?php
-    require("model/model.php");
+    // require("model/model.php");
+
+    require_once('model/NewManager.php');
+    require_once('model/CommentManager.php');
 
     function listOfNews() {
         // Which page
@@ -9,8 +12,10 @@
             $current_page = 1;
         }
 
+        $newManager = new NewManager();
+
         // Count the number of News
-        $nb_of_news = nbOfNews();
+        $nb_of_news = $newManager->nbOfNews();
         // Get the number
         $total_news = $nb_of_news->fetch();
         $total_nb_news = $total_news['nb_news'];
@@ -23,27 +28,32 @@
         // Calculation of the first message of the page
         $first_news = ($current_page * $per_page) - $per_page;
 
-        $request = getNewsPerPage($first_news, $per_page);
+        $request = $newManager->getNewsPerPage($first_news, $per_page);
 
         // affichage
         require("view/indexView.php");
     }
 
     function listOfComments() {
+        $newManager = new NewManager();
+        $commentManager = new CommentManager();
         
         $id_news= $_GET['id-news'];
 
-        $request_news = getNewById($id_news);
+        $request_news = $newManager->getNewById($id_news);
         $data_news = $request_news->fetch();
 
-        $request_comments = getComments($id_news);
+        $request_comments = $commentManager->getComments($id_news);
         $data = $request_comments->fetch();
 
         require('view/commentsView.php');
     }
 
     function addMessage($id, $name, $message) {
-        $affectedLines = postMessage($id, $name, $message);  
+        $commentManager = new CommentManager();
+
+        $affectedLines = $commentManager->postMessage($id, $name, $message); 
+
         if($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
