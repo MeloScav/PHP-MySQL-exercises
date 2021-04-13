@@ -12,7 +12,7 @@
             $current_page = 1;
         }
 
-        $newManager = new NewManager();
+        $newManager = new \MeloScav\blog\model\NewManager();
 
         // Count the number of News
         $nb_of_news = $newManager->nbOfNews();
@@ -35,8 +35,8 @@
     }
 
     function listOfComments() {
-        $newManager = new NewManager();
-        $commentManager = new CommentManager();
+        $newManager = new \MeloScav\blog\model\NewManager();
+        $commentManager = new \MeloScav\blog\model\CommentManager();
         
         $id_news= $_GET['id-news'];
 
@@ -50,7 +50,7 @@
     }
 
     function addMessage($id, $name, $message) {
-        $commentManager = new CommentManager();
+        $commentManager = new \MeloScav\blog\model\CommentManager();
 
         $affectedLines = $commentManager->postMessage($id, $name, $message); 
 

@@ -1,13 +1,9 @@
 <?php
+    namespace MeloScav\blog\model;
 
-    class CommentManager {
-        private function dbConnect() {
-            require('./../config.php');
-            $db = new PDO($DB_CONNECTION,  $DB_USERNAME, $DB_PASSWORD,
-                            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            return $db;
-        }
+    require_once('model/Manager.php');
 
+    class CommentManager extends Manager {
         public function getComments($id_news) {
             $db = $this->dbConnect();
             $request_comments = $db->prepare('SELECT new_id, author, comment, DATE_FORMAT(comment_date, "%d/%m/%Y %H:%i") AS comment_date_new FROM comments WHERE new_id = :url_id ORDER BY comment_date');

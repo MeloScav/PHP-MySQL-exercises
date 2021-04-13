@@ -1,13 +1,9 @@
 <?php
+    namespace MeloScav\blog\model;
 
-    class NewManager {
-        private function dbConnect() {
-            require('./../config.php');
-            $db = new PDO($DB_CONNECTION,  $DB_USERNAME, $DB_PASSWORD,
-                            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            return $db;
-        }
-    
+    require_once('model/Manager.php');
+
+    class NewManager extends Manager {
         public function nbOfNews() {
             $db = $this->dbConnect();
             $nb_of_news = $db->query('SELECT COUNT(*) AS nb_news FROM news');
@@ -17,8 +13,8 @@
         public function getNewsPerPage($first_news, $per_page) {
             $db = $this->dbConnect();
             $request = $db->prepare('SELECT ID, title, content, DATE_FORMAT(creation_date, "le %d/%m/%Y à %H:%i") AS date_news FROM news ORDER BY ID DESC LIMIT :first,:perpage');
-            $request->bindValue(':first', $first_news, PDO::PARAM_INT);
-            $request->bindValue(':perpage', $per_page, PDO::PARAM_INT);
+            $request->bindValue(':first', $first_news, \PDO::PARAM_INT);
+            $request->bindValue(':perpage', $per_page, \PDO::PARAM_INT);
             $request->execute();
             return $request;
         }
