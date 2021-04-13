@@ -30,8 +30,7 @@
 
         $request = $newManager->getNewsPerPage($first_news, $per_page);
 
-        // affichage
-        require("view/indexView.php");
+        require("view/newsView.php");
     }
 
     function listOfComments() {
